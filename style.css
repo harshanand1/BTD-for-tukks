@@ -1,0 +1,432 @@
+/* Import Google font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+body{
+  min-height: 100vh;
+  width: 100%;
+  background-image: url(image/WhatsApp\ Image\ 2024-01-19\ at\ 15.48.20_421c7587.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  /*for disable scrolling*/
+  overflow: hidden;
+}
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  padding: 0 10px;
+}
+.navbar {
+  display: flex;
+  padding: 22px 0;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+.navbar .hamburger-btn {
+  display: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+.navbar .logo {
+  gap: 10px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+.navbar .logo img {
+  width: 40px;
+  border-radius: 50%;
+}
+
+.navbar .logo h2 {
+  color: rgb(250, 242, 242);
+  font-weight: 600;
+  font-size: 1.7rem;
+}
+.navbar .links {
+  display: flex;
+  gap: 35px;
+  list-style: none;
+  align-items: center;
+}
+.navbar .close-btn {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  display: none;
+  color: #000;
+  cursor: pointer;
+}
+.navbar .links a {
+  color: rgb(239, 246, 247);
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: 0.1s ease;
+}
+.navbar .links a:hover {
+  color: #19e8ff;
+}
+.navbar .login-btn {
+  border: none;
+  outline: none;
+  background: rgb(245, 248, 249);
+  color: #275360;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 10px 18px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: 0.15s ease;
+}
+.navbar .login-btn:hover {
+  background: #19e8ff;
+}
+
+.form-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 10;
+  width: 100%;
+  opacity: 0;
+  pointer-events: none;
+  max-width: 720px;
+  background: rgb(245, 247, 248);
+  /* border: 2px solid #fff; */
+  transform: translate(-50%, -70%);
+}
+.show-popup .form-popup {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%);
+  transition: transform 0.3s ease, opacity 0.1s;
+}
+.form-popup .close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+
+  
+  color: #332a2a;
+  cursor: pointer;
+}
+.blur-bg-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  pointer-events: none;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  transition: 0.1s ease;
+}
+.show-popup .blur-bg-overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+.form-popup .container{
+  display: flex;
+}
+.container{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  max-width: 430px;
+  width: 100%;
+  background: #fff;
+  border-radius: 7px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+}
+.container .registration{
+  display: none;
+  overflow: auto;
+}
+#check:checked ~ .registration{
+  display: block;
+}
+#check:checked ~ .login{
+  display: none;
+}
+#check{
+  display: none;
+}
+.container .form{
+  padding: 2rem;
+}
+.form header{
+  font-size: 2rem;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+ .form input{
+  height: 50px;
+  width: 100%;
+  padding: 0 10px;
+  font-size: 17px;
+  margin-bottom: 9px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  outline: none;
+ }
+ /* captcha                                0000000 */
+ .message.active {              
+  display: block;
+ }
+ .form input:focus{
+   box-shadow: 0 1px 0 rgb(0, 0, 0);
+ }
+.form a{
+  font-size: 16px;
+  color: #8c85f3;
+  text-decoration: none;
+}
+.form a:hover{
+  text-decoration: underline;
+}
+.form input.button{
+  color: #fff;
+  background: #e6bb88;
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.form input.button:hover{
+  background: #006653;
+}
+.signup{
+  font-size: 14px;
+  text-align: center;
+}
+.signup label{
+  color: #009579;
+  cursor: pointer;
+  
+}
+.signup label:hover{
+  text-decoration: underline;
+  
+  
+}
+.error {
+  color: red;
+  display: none;
+  font-size: 0.8rem;
+  margin-top: 0.2rem;
+}
+
+#google-signup-button {
+  height: 40px;
+  color: #1146e7;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  align-content: center;
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.containers {                     
+  width: 600px;
+  margin: 200px;
+  background-color: whitesmoke;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0, 51, 255, 0.854);
+}
+h2{
+  text-align: center;
+}
+
+#imageInput {
+  margin-top: 15px;
+}
+
+#controls {
+
+  margin-top: 20px;
+}
+
+#imageContainer {
+  margin-top: 20px;
+  perspective: 800px;
+}
+
+#imageContainer img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  transform: rotateY(20deg);
+  transition: transform 0.5s;
+}
+
+#imageContainer:hover img {
+  transform: rotateY(0);
+}
+.preview {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  transform: rotateY(20deg);
+  transition: transform 0.5s;
+}
+#previewImage {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+}
+#imageContainer:hover .preview {
+  transform: rotateY(0);
+}
+
+button {
+  background-color: white;
+  color: rgb(62, 18, 91);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+button:hover {
+  background-color: #00BCD4;
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 950px) {
+  .navbar :is(.hamburger-btn, .close-btn) {
+      display: block;
+  }
+
+  .navbar {
+      padding: 15px 0;
+  }
+
+  .navbar .logo img {
+      display: none;
+  }
+
+  .navbar .logo h2 {
+      font-size: 1.4rem;
+  }
+
+  .navbar .links {
+      position: fixed;
+      top: 0;
+      z-index: 10;
+      left: -100%;
+      display: block;
+      height: 100vh;
+      width: 100%;
+      padding-top: 60px;
+      text-align: center;
+      background: #fff;
+      transition: 0.2s ease;
+  }
+
+  .navbar .links.show-menu {
+      left: 0;
+  }
+
+  .navbar .links a {
+      display: inline-flex;
+      margin: 20px 0;
+      font-size: 1.2rem;
+      color: #000;
+  }
+
+  .navbar .links a:hover {
+      color: #00BCD4;
+  }
+
+  .navbar .login-btn {
+      font-size: 0.9rem;
+      padding: 7px 10px;
+  }
+  
+}
+
+
+@media (max-width: 760px) {
+  .form-popup {
+      width: 95%;
+  }
+
+  .form-box .form-details {
+      display: none;
+  }
+
+  .form-box .form-content {
+      padding: 30px 20px;
+  }
+}
